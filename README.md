@@ -2,6 +2,14 @@
 
 ### Prompt Engineering Is All You Need
 
+our approach results:
+| Method        | Actual Cost | Our Approach Cost | Cost Reduction |
+|---------------|-------------|-------------------|----------------|
+| Text Cleaning | 2.666666    | 0.7666655         | 71.24%         |
+| Spell Check   | 1.332       | 0.338             | 74.61%         |
+| Clustering    | $ 0.047     | $ 0.023           | 51.56%         |
+| ...    | ...    |...        | ...        |
+
 While many open-source LLMs have popped up since ChatGPT came out, none have quite matched the satisfaction and reliability of OpenAI. If you want to use LLMs in your app or build one yourself, OpenAI is still the way to go. They have a great business model for their language model APIs, and their most cheapest and powerful option, **gpt-3.5-turbo-0125**, is widely used. But you can actually make it even cheaper by being smart about how you call the API. The secret is in **prompt engineering**, knowing what to put in and what you want to get out.
 
 Let’s take a quick look at where things stand today, in March 2024. For this blog, we’ll be using the [gpt-3.5-turbo-0125](https://openai.com/pricing#:~:text=Output-,gpt%2D3.5%2Dturbo%2D0125,-%240.50%C2%A0/%201M) language model. You can use others, but this one is the most affordable for me, especially since we’ll be dealing with a lot of text data. Let’s check out its specs, like pricing, token limits and more.
