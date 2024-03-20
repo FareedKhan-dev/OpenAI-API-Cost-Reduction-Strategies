@@ -6,7 +6,9 @@ While many open-source LLMs have popped up since ChatGPT came out, none have qui
 
 Let’s take a quick look at where things stand today, in March 2024. For this blog, we’ll be using the [gpt-3.5-turbo-0125](https://openai.com/pricing#:~:text=Output-,gpt%2D3.5%2Dturbo%2D0125,-%240.50%C2%A0/%201M) language model. You can use others, but this one is the most affordable for me, especially since we’ll be dealing with a lot of text data. Let’s check out its specs, like pricing, token limits and more.
 
- <iframe src="https://medium.com/media/cc7810b89ca59dd6cb14254de2469d08" frameborder=0></iframe>
+| MODEL             | CONTEXT WINDOW | TRAINING DATA | Input                  | Output             |
+|-------------------|----------------|---------------|------------------------|--------------------|
+| gpt-3.5-turbo-0125 | 16,385 tokens  | Up to Sep 2021 | $0.50 / 1M tokens     | $1.50 / 1M tokens |
 
 Before we get started, let’s see how OpenAI calculates token each time an API call made.
 
@@ -194,7 +196,11 @@ print(results)
 ```
 The total cost for this task comes to **$0.023**. If we hadn’t used this prompt template, we would likely have spent more than twice as much as input costs. This is because we would be sending all the headlines as input, and the output cost of $1.50 per million tokens would apply to the complete headlines being returned. Here’s a summary of how much we saved by using this approach:
 
- <iframe src="https://medium.com/media/d5b3cebbe31cd5bcd479b7699a3160df" frameborder=0></iframe>
+| Method              | Clustering                |
+|---------------------|---------------------------|
+| Actual Cost         | $ 0.047                |
+| Our Approach Cost   | $ 0.023                     |
+| Cost Reduction      | 51.56%                    |
 
 This approach is going to be crucial as it save your credits exponentially when you work with bigger data. But we have to code a little bit to map the short abbreviations to actual headlines.
 ```python
@@ -282,7 +288,11 @@ print(results)
 ```
 The total cost for this task comes to **$0.33812, **if 500K words contains 8K-10K spell errors. ****If we hadn’t used this prompt template, we would likely have spent more than twice as much as input costs. This is because we would be sending all the text as input, and the output cost of $1.50 per million tokens would apply to the complete input text being returned. Here’s a summary of how much we saved by using this approach:
 
- <iframe src="https://medium.com/media/4c0c1b69c821e62592ea77018530f35b" frameborder=0></iframe>
+| Method              | Spell Check                |
+|---------------------|---------------------------|
+| Actual Cost         | 1.332                  |
+| Our Approach Cost   | 0.338                  |
+| Cost Reduction      | 74.61%                    |
 
 Even with a relatively small text of 500 words, the cost savings are noticeable. Imagine the financial benefits when working with big data!
 
@@ -373,7 +383,11 @@ print(results)
 ```
 The total cost for this task comes to **$0.7665, **if 1 Milliob words contains 20K-30K cleaning errors. If we hadn’t used this prompt template, we would likely have spent more than twice as much as input costs. Here’s a summary of how much we saved by using this approach:
 
- <iframe src="https://medium.com/media/97c2f7eb2b3d907a3b5e71692b37c4ad" frameborder=0></iframe>
+| Method              | Text Cleaning                |
+|---------------------|---------------------------|
+| Actual Cost         | 2.666666                  |
+| Our Approach Cost   | 0.7666655                 |
+| Cost Reduction      | 71.24%                    |
 
 Working with 1 Million words document, the cost savings are noticeable. Imagine the financial benefits when working with big data!
 
